@@ -1192,28 +1192,45 @@ const RITUAIS_LAB = [
   { nome:"Mapa Sanguíneo", custo:3, elemento:"SANGUE", circulo:2, simbolo:"mapa", cor:"#ff1a2b",
     espec:[["Execução","padrão"],["Alcance","toque"],["Alvo","1 superfície"],["Duração","cena"],["Resistência","Vontade evita"]],
     texto:"Você toca em uma superfície e desenha um mapa com gotas de sangue que sinalizam em tempo real a localização de todos os seres em um raio de 1 km a partir da superfície tocada. Os seres podem fazer um teste de resistência para evitar este efeito.",
-    extras:[["Discente (+3 PE)","o ritual também revela a condição de saúde dos seres que falharem no teste de resistência, conforme seus PV: ileso (PV em 100%); ferido (PV entre 99% e 51%); machucado (PV entre 50% e 1%); morrendo (PV em 0% e/ou condição morrendo)."]] },
+    extras:[["Discente (+3 PE)","o ritual também revela a condição de saúde dos seres que falharem no teste de resistência, conforme seus PV: ileso (PV em 100%); ferido (PV entre 99% e 51%); machucado (PV entre 50% e 1%); morrendo (PV em 0% e/ou condição morrendo)."]] ,
+    masc:{ nome:"Revelação Sanguínea", circulo:"???",
+      espec:[["Execução","completa"],["Alcance","pessoal"],["Área","1 km de raio a partir de você"],["Efeito","mapear seres"],["Duração","cena"],["Resistência","Vontade anula"]],
+      texto:"Ao apertar seus arames farpados, você estende as duas pontas, uma em cada mão, enquanto desenha o símbolo do ritual no peito. Suas mãos começam a sangrar, o símbolo brilha em vermelho e, por um instante, seus olhos também brilham em vermelho, escorrendo uma gota de sangue que pinga no chão.<br><br>Cada ser vivo na área deve passar num teste de Vontade. Se falhar, você saberá identificar seu tamanho, direção, distância, intenção geral e estado de saúde (Ileso 100%; Bem 60–90%; Machucado 10–50%; ou Morrendo 1 PV ou menos).",
+      extras:[] } },
   { nome:"Rajada Caótica", custo:3, elemento:"ENERGIA", circulo:2, simbolo:"rajada", cor:"#9b3dff",
     espec:[["Execução","padrão"],["Alcance","médio"],["Alvo","1 ser"],["Duração","instantânea"],["Resistência","Reflexos reduz o dano à metade"]],
     texto:"Você concentra a estática caótica da Energia e a projeta contra o alvo, disparando um raio que causa 8d6 pontos de dano de Energia.",
-    extras:[["Discente (+3 PE)","o dano muda para 8d8 pontos de dano de Energia."]] },
+    extras:[["Discente (+3 PE)","o dano muda para 8d8 pontos de dano de Energia."]] ,
+    masc:{ nome:"Tempestade Caótica", circulo:"???",
+      espec:[["Execução","padrão"],["Alcance","médio"],["Alvo","1 ser"],["Resistência","Fortitude reduz à metade"]],
+      texto:"Você traça o ritual seguindo as linhas do labirinto marcado em seu corpo. As tatuagens começam a emitir um brilho rosado e a energia se concentra na ponta de sua arma ritualística/componente. Você envia uma rajada em forma de relâmpago na direção do alvo, causando 8d10 de dano de Energia e deixando-o com −1d em todos os testes de Reflexos por uma rodada. O alvo pode reduzir o dano à metade se passar num teste de Fortitude.",
+      extras:[] } },
   { nome:"Labirinto Mental", custo:3, elemento:"CONHECIMENTO", circulo:2, simbolo:"mental", cor:"#ffc83c",
     espec:[["Execução","padrão"],["Alcance","médio"],["Alvo","1 pessoa"],["Duração","1d4 rodadas"],["Resistência","Vontade evita"]],
     disEspec:{"Alcance":"longo"},
     texto:"Você prende a mente de uma pessoa em um labirinto. Pela duração do ritual, o alvo é obrigado a gastar suas ações para se mover em uma direção aleatória. No início de cada um de seus turnos, o alvo pode repetir o teste de resistência. Se passar, se liberta do ritual.",
-    extras:[["Discente (+3 PE)","muda o alcance para longo."]] },
+    extras:[["Discente (+3 PE)","muda o alcance para longo."]] ,
+    masc:{ nome:"Labirinto Abissal", circulo:"???",
+      espec:[["Execução","completa"],["Alcance","curto"],["Alvo","1 ser"],["Duração","1d4 rodadas"],["Resistência","Vontade parcial"]],
+      disEspec:{},
+      texto:"Você tenta distorcer a mente do alvo para que ele acredite estar num labirinto mental vítreo: no centro de um universo amarelado, com várias linhas de labirinto, enquanto é controlado pelas linhas traçadas. O alvo corre e se movimenta com todo o seu deslocamento em uma direção escolhida por você, e não pode refazer o teste a cada rodada. Se ele passar no teste de Vontade, perde 3 metros de deslocamento.",
+      extras:[] } },
   { nome:"Capturar Momento", custo:3, elemento:"MORTE", circulo:2, simbolo:"captura", cor:"#b9bec9",
     espec:[["Execução","padrão"],["Alcance","médio"],["Alvo","esfera de 18m de raio"],["Duração","cena"],["Resistência","permanente até ser dissipado"]],
     texto:"??? marca um local em alcance médio com um símbolo de Morte invisível. O símbolo capta imagens e sons em alcance médio dele. ??? pode gastar uma ação padrão para ver e ouvir qualquer coisa captada pelo símbolo, mesmo estando distante dele. ??? pode ter no máximo três símbolos; se criar um quarto, um dos anteriores desaparece.",
-    extras:[["Discente (+3 PE)","acrescenta ao efeito a opção de gastar uma ação padrão para fazer o símbolo explodir em energias entrópicas, que causam 4d8 pontos de dano de Morte em todos os seres captados por ele no momento da explosão (um teste de resistência de Fortitude contra a DT do ritual reduz o dano à metade)."]] }
+    extras:[["Discente (+3 PE)","acrescenta ao efeito a opção de gastar uma ação padrão para fazer o símbolo explodir em energias entrópicas, que causam 4d8 pontos de dano de Morte em todos os seres captados por ele no momento da explosão (um teste de resistência de Fortitude contra a DT do ritual reduz o dano à metade)."]] ,
+    masc:{ nome:"Consumir Momento", circulo:"???",
+      espec:[["Execução","completa"],["Alcance","extremo"],["Área","uma sala"],["Efeito","explodir um local"],["Duração","instantânea"]],
+      texto:"O usuário marca um local ou área com um símbolo de natureza violenta, que deteriora o lugar só de existir. Após conjurar, você estala os dedos, fazendo a espiral estourar e destruir a área: todos os seres nela sofrem 3d20 +5 de dano de Morte.",
+      extras:[["Discente (+2 PD)","as bombas causam 4d20 +10 de dano de energia."]] } }
 ];
 // Ficha 1: Jonas Aguiar (as outras 5 continuam template)
 const base1 = personagemTemplate(1, "#ff1a2b");
 const JONAS = {
   ...base1, nome: "JONAS AGUIAR", subtitulo: "", senha: "CAÇADOR",
   defesa: 16, status: stat(63,43), atributos: { AGI: 2, FOR: 3, INT: 1, PRE: 2, VIG: 2 },
-  pericias: peri({Adestramento:5,Atletismo:10,Crime:10,Enganação:5,Furtividade:5,Investigação:5,Pilotagem:5,Sobrevivência:5,Luta:10,Fortitude:5,Reflexos:5,Vontade:5}),
-  periciasMascara: peri({Adestramento:10,Atletismo:10,Crime:10,Enganação:10,Furtividade:10,Investigação:10,Pilotagem:10,Sobrevivência:10,Luta:10,Fortitude:5,Reflexos:5,Vontade:5}),
+  pericias: peri({Atletismo:10,Luta:10,Pontaria:10,Adestramento:5,Fortitude:5,Investigação:5,Percepção:5,Pilotagem:5,Reflexos:5,Religião:5,Sobrevivência:5,Tática:5}),
+  periciasMascara: peri({Atletismo:10,Luta:10,Pontaria:10,Adestramento:5,Fortitude:5,Investigação:5,Percepção:5,Pilotagem:5,Reflexos:5,Religião:5,Sobrevivência:5,Tática:5}),
   habilidadesNormais: JONAS_BASE, itensIniciais: ["machado"],
   frase: "Aguiar mentia para si mesmo que era justiça...", fraseDestaque: "mas ele matava por esporte", dificuldade: 3,
   imagemBase: IMG.jonasBase, imagemFerido: IMG.jonasFerido, imagemMascara: IMG.jonasMascara,
@@ -1224,8 +1241,8 @@ const base2 = personagemTemplate(2, "#ff1a2b");
 const DALMO = {
   ...base2, nome: "DALMO MAGNO", subtitulo: "", senha: "MANOPLAS",
   defesa: 16, status: stat(74,36), atributos: { AGI: 1, FOR: 4, INT: 1, PRE: 1, VIG: 3 },
-  pericias: peri({Atletismo:10,Intimidação:10,Pilotagem:10,Luta:10,Fortitude:10,Vontade:5}),
-  periciasMascara: peri({Atletismo:10,Intimidação:10,Pilotagem:10,Luta:10,Fortitude:10,Vontade:5}),
+  pericias: peri({Fortitude:10,Luta:10,Iniciativa:5,Intimidação:5,Pilotagem:5,Reflexos:5}),
+  periciasMascara: peri({Fortitude:10,Luta:10,Iniciativa:5,Intimidação:5,Pilotagem:5,Reflexos:5}),
   habilidadesNormais: DALMO_BASE, itensIniciais: ["manoplas"],
   frase: "O sangue podia até pagar bem, mas para Dalmo...", fraseDestaque: "A glória era viciante", dificuldade: 2,
   imagemBase: IMG.dalmoBase, imagemFerido: IMG.dalmoFerido, imagemMascara: IMG.dalmoMascara,
@@ -1236,8 +1253,8 @@ const base3 = personagemTemplate(3, "#ff1a2b");
 const JAE = {
   ...base3, nome: "JAE YOON", subtitulo: "", senha: "Sshh",
   defesa: 15, status: stat(52,45), atributos: { AGI: 3, FOR: 2, INT: 3, PRE: 1, VIG: 1 },
-  pericias: peri({Acrobacia:5,Atletismo:5,Crime:10,Enganação:10,Furtividade:10,Investigação:10,Tecnologia:5,Luta:10,Reflexos:10,Vontade:5}),
-  periciasMascara: peri({Acrobacia:10,Atletismo:10,Crime:10,Enganação:10,Furtividade:10,Investigação:10,Tecnologia:10,Luta:10,Reflexos:10,Vontade:5}),
+  pericias: peri({Enganação:10,Furtividade:10,Iniciativa:10,Luta:10,Reflexos:10,Acrobacia:5,Artes:5,Investigação:5,Percepção:5}),
+  periciasMascara: peri({Enganação:10,Furtividade:10,Iniciativa:10,Luta:10,Reflexos:10,Acrobacia:5,Artes:5,Investigação:5,Percepção:5}),
   habilidadesNormais: JAE_BASE, itensIniciais: ["punhal"],
   frase: "Ao encontrar no Sangue a liberdade da rebeldia...", fraseDestaque: "Jae matava porque podia.", dificuldade: 4,
   imagemBase: IMG.jaeBase, imagemFerido: IMG.jaeFerido, imagemMascara: IMG.jaeMascara,
@@ -1248,8 +1265,8 @@ const base4 = personagemTemplate(4, "#ff1a2b");
 const KEMI = {
   ...base4, nome: "KEMI", subtitulo: "", senha: "FANTASMA", nomeImagem: IMG.kemiNome,
   defesa: 15, status: stat(46,51), atributos: { AGI: 3, FOR: 1, INT: 3, PRE: 2, VIG: 1 },
-  pericias: peri({Acrobacia:10,Atletismo:5,Crime:10,Furtividade:10,Investigação:10,Medicina:10,Ocultismo:5,Sobrevivência:5,Pontaria:10,Reflexos:10,Vontade:5}),
-  periciasMascara: peri({Acrobacia:10,Atletismo:10,Crime:10,Furtividade:10,Investigação:10,Medicina:10,Ocultismo:10,Sobrevivência:10,Pontaria:10,Reflexos:10,Vontade:5}),
+  pericias: peri({Iniciativa:10,Investigação:10,Percepção:10,Pontaria:10,Reflexos:10,Acrobacia:5,Diplomacia:5,Furtividade:5,Intimidação:5,Medicina:5,Ocultismo:5,Vontade:5}),
+  periciasMascara: peri({Iniciativa:10,Investigação:10,Percepção:10,Pontaria:10,Reflexos:10,Acrobacia:5,Diplomacia:5,Furtividade:5,Intimidação:5,Medicina:5,Ocultismo:5,Vontade:5}),
   habilidadesNormais: KEMI_BASE, itensIniciais: ["sniper"],   // tipografia do nome na ficha base
   frase: "Kemi não se importava com um ideal moral...", fraseDestaque: "ela só matava pra vencer.", dificuldade: 3,
   imagemBase: IMG.kemiBase, imagemFerido: IMG.kemiFerido, imagemMascara: IMG.kemiMascara,
@@ -1260,7 +1277,7 @@ const base5 = personagemTemplate(5, "#ff1a2b");
 const LABIRINTO = {
   ...base5, nome: "???", subtitulo: "", senha: "OLABIRINTO",
   defesa: 10, status: stat(42,64), rituais: RITUAIS_LAB,
-  pericias: peri({Ocultismo:15,Vontade:10}),
+  pericias: peri({Ocultismo:15,Percepção:10,Reflexos:10,Vontade:10,Enganação:5,Iniciativa:5,Intuição:5,Investigação:5,Medicina:5,Religião:5}),
   frase: "", fraseDestaque: "", dificuldade: 5,   // sem frase de efeito
   imagemBase: IMG.labBase, imagemMascara: IMG.labMascara,
   nomeImagem: IMG.labNome, nomeLargura: "150px",   // tipografia do nome (ficha base e flashcard)
@@ -3423,6 +3440,7 @@ const ritAdd = r => { const x = (r.extras||[]).find(y=>/^discente/i.test(y[0])),
 const ritVer = r => ritDis(r) && RIT_VER[r.nome]==='discente' ? 'discente' : 'padrao';
 const ritCusto = r => r.custo + (ritVer(r)==='discente' ? ritAdd(r) : 0);
 const ritHintTxt = r => `TOQUE DUAS VEZES PARA CONJURAR · −${ritCusto(r)} PD${ritVer(r)==='discente'?' (DISCENTE)':''}`;
+const ritList = ()=> (cur && cur.rituais ? cur.rituais : []).map(r=> st && st.mascara && r.masc ? {...r,...r.masc} : r);   // com a máscara ativa, usa a versão da máscara (nome, texto, especificações)
 function openRituais(){
   if(!cur || !cur.rituais) return; closeRituais();
   if(cur.rituais.some(r=>r.simbolo==='rajada')) rcLoad().catch(()=>{});   // prepara o símbolo da Rajada Caótica em segundo plano
@@ -3431,11 +3449,11 @@ function openRituais(){
   const card = (r,i)=>{ const dv = ritVer(r)==='discente', cu = ritCusto(r), esp = r.espec.map(([k,v])=>[k,(dv && r.disEspec && r.disEspec[k]) || v]);
     return `<article class="rit${dv?' is-dis':''}" data-i="${i}"${r.cor?` style="--c:${r.cor}"`:''} tabindex="0" role="button" aria-label="${r.nome} — ${cu} PD. Toque duas vezes para conjurar"><h3 class="rit-t">${r.nome} <span>— ${cu} PD</span></h3><div class="rit-tag">${r.elemento} ${r.circulo}</div>${ritDis(r)?`<div class="rit-ver" role="group" aria-label="Versão do ritual"><button type="button" data-ver="padrao" class="${dv?'':'on'}">PADRÃO · ${r.custo} PD</button><button type="button" data-ver="discente" class="${dv?'on':''}">DISCENTE · ${r.custo+ritAdd(r)} PD</button></div>`:''}<div class="rit-spec">${esp.map(([k,v])=>`<div>${k} ${v}</div>`).join('')}</div><p class="rit-tx">${r.texto}</p>${(r.extras||[]).map(x=>`<p class="rit-tx${dv && /^discente/i.test(x[0])?' dis-on':''}"><b class="rit-x">${x[0]}:</b> ${x[1]}</p>`).join('')}<div class="rit-hint">${ritHintTxt(r)}</div></article>`; };
   const p = document.createElement('div'); p.id = 'ritpanel'; p.className = 'ritpanel';
-  const paintCards = ()=>{ $('#rit-cards',p).innerHTML = cur.rituais.map(card).join(''); };
+  const paintCards = ()=>{ $('#rit-cards',p).innerHTML = ritList().map(card).join(''); };
   p.innerHTML = `<div class="rp-in"><div class="rp-h"><button class="back" id="rp-back">← FICHA</button><h2>RITUAIS</h2><div class="rp-pd">DETERMINAÇÃO <b id="rp-det"></b></div></div><div id="rit-cards"></div></div>`;
   document.body.appendChild(p); paintCards(); paintRitPD();
   $('#rp-back',p).addEventListener('click',closeRituais);
-  p.addEventListener('click',e=>{ const b = e.target.closest('.rit-ver button'); if(!b) return; const c = b.closest('.rit'), r = cur.rituais[+c.dataset.i];
+  p.addEventListener('click',e=>{ const b = e.target.closest('.rit-ver button'); if(!b) return; const c = b.closest('.rit'), r = ritList()[+c.dataset.i];
     RIT_VER[r.nome] = b.dataset.ver; try{ localStorage.setItem('hx_ritver',JSON.stringify(RIT_VER)); }catch(err){} lastTap = {t:0,x:0,y:0,i:-1}; paintCards(); });
   p.addEventListener('pointerup',e=>{
     if(e.button>0 || e.target.closest('.rit-ver')) return; const c = e.target.closest('.rit'); if(!c) return;
@@ -3447,7 +3465,7 @@ function openRituais(){
 }
 document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeRituais(); });
 function castRitual(i,c){
-  const r = cur && cur.rituais && cur.rituais[i]; if(!r || ritBusy) return; lastCast = performance.now();
+  const r = cur && cur.rituais && ritList()[i]; if(!r || ritBusy) return; lastCast = performance.now();
   const cu = ritCusto(r);
   if(st.status.detAtual < cu){
     c.classList.remove('nopd'); void c.offsetWidth; c.classList.add('nopd');
