@@ -27,7 +27,7 @@
 .cs-slide[data-i="3"] .cs-art{transform:translateX(8%)}
 .artw .art.m .shadow{display:none}
 .artw .art.m img{animation:breath 4.2s ease-in-out infinite,auraC 2.4s ease-in-out infinite;filter:drop-shadow(0 0 2px #ff1a2b) drop-shadow(0 0 7px #ff1a2b) drop-shadow(0 0 18px rgba(255,26,43,.85))}
-@keyframes auraC{50%{filter:drop-shadow(0 0 3px #ff2a3d) drop-shadow(0 0 11px #ff1a2b) drop-shadow(0 0 28px rgba(255,26,43,.95))}}
+@keyframes auraC{50%{opacity:.88}}
 body.lab-on .pent,body.lab-on .steppers{position:relative;z-index:3}
 .mc-at{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin:8px 0 10px}
 .mc-at span{display:flex;flex-direction:column;align-items:center;padding:4px 0;border:1px solid #3a1215;background:rgba(0,0,0,.4);font-family:Oswald,'HX Oswald',sans-serif;font-size:.68rem;letter-spacing:.12em;color:var(--dim)}
@@ -206,10 +206,10 @@ button:focus-visible,[tabindex]:focus-visible,input:focus-visible{outline:2px so
 @keyframes nm{from{opacity:0;filter:blur(6px)}to{opacity:1;filter:none}}
 @keyframes flash{0%{opacity:0}25%{opacity:.8}100%{opacity:0}}
 @keyframes breathe{50%{transform:scale(1.33)}}
-@keyframes aura{50%{filter:drop-shadow(0 0 7px #ff2a3d) drop-shadow(0 0 28px #ff1a2b) drop-shadow(0 0 54px rgba(255,26,43,.85))}}
+@keyframes aura{50%{opacity:.86}}
 @keyframes hb{0%,100%{transform:scale(1)}12%{transform:scale(1.05)}24%{transform:scale(1)}36%{transform:scale(1.04)}}
 @keyframes overp{50%{filter:brightness(1.6)}}
-@keyframes habaura{50%{filter:drop-shadow(0 0 10px var(--c)) drop-shadow(0 0 30px var(--c))}}
+@keyframes habaura{50%{opacity:.88}}
 @keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}}
 
@@ -407,14 +407,14 @@ html[data-device=mobile] .sheet{grid-template-columns:minmax(0,1fr);grid-templat
 @keyframes zin{0%{opacity:0;transform:scale(.86)}16%{opacity:1}78%{opacity:1}100%{opacity:0;transform:scale(1.16)}}
 .lobby{padding-top:calc(40px + var(--tb,0px))}
 .hab.open{animation:habaura2 2s ease-in-out infinite;filter:drop-shadow(0 0 6px #ff1a2b) drop-shadow(0 0 18px #ff1a2b)}
-@keyframes habaura2{50%{filter:drop-shadow(0 0 10px #ff2a3d) drop-shadow(0 0 30px #ff1a2b)}}
+@keyframes habaura2{50%{opacity:.88}}
 .hab.open .rib{background:#ff1a2b}
 .more p{border-color:#ff1a2b}
 body.mask-on .hab .rib{background:#c4121c;color:#fff}
 body.mask-on .hab .rib b{color:#fff;filter:none}
 #maskglow{position:fixed;inset:0;z-index:45;pointer-events:none;opacity:0;transition:opacity .8s;box-shadow:inset 0 0 70px 12px rgba(255,26,43,.75)}
 body.mask-on #maskglow{opacity:1;animation:edgep 1.6s ease-in-out infinite}
-@keyframes edgep{50%{box-shadow:inset 0 0 120px 28px rgba(255,26,43,.95)}}
+@keyframes edgep{50%{opacity:.62}}
 .art img{transform-origin:50% 88%;animation:breath 4.2s ease-in-out infinite}
 .art img.fin{animation:fade .7s both,breath 4.2s ease-in-out infinite}
 @keyframes breath{0%,100%{transform:scale(1,1)}50%{transform:scale(1.012,1.03)}}
@@ -2043,9 +2043,9 @@ function sinoEyeMap(){
 const sinoKey = src => 's'+src.length+src.slice(40,72)+src.slice(-48);   // chave curta do cache de contornos
 /* pré-processa (em segundos ociosos) o contorno vermelho de cada personagem (mesma base das silhuetas dos Flashcards), para a animação do Sino não travar */
 function sinoWarm(){ const srcs = [...sinoEyeMap().keys()]; let i = 0;
-  const next = ()=>{ if(i>=srcs.length) return; const src = srcs[i++]; maskOutline(src,sinoKey(src)).catch(()=>{}).then(()=>setTimeout(next,300)); };
+  const next = ()=>{ if(i>=srcs.length) return; const src = srcs[i++]; maskOutline(src,sinoKey(src)).catch(()=>{}).then(()=>setTimeout(()=>{ window.requestIdleCallback ? requestIdleCallback(next,{timeout:4000}) : next(); },400)); };
   next(); }
-window.addEventListener('load',()=>setTimeout(sinoWarm,3500));
+window.addEventListener('load',()=>setTimeout(()=>{ if(window.requestIdleCallback) requestIdleCallback(sinoWarm,{timeout:15000}); else sinoWarm(); },6000));   // pré-processamento só quando o aparelho estiver ocioso
 function sinoDados(c){   // participantes da Batalha de Intenções do combate (ou do último combate em andamento)
   c = c || [...CMB.list].reverse().find(x=>x.estado==='andamento' && x.bi);
   if(!c || !c.bi) return {parts:[]};
@@ -2498,7 +2498,7 @@ const aliCard = (a,k,mestre)=>`<section class="ft-p ali-c" data-ali="${a.id}"><d
   <div class="ft-sb"><p class="ft-lead">${a.desc}</p>
   <div class="ft-go"><b class="ft-tag" style="display:block">BÔNUS</b>${a.bonus}</div>
   ${a.hab?`<div class="ft-warn" style="margin-top:12px"><h4>HABILIDADE ESPECIAL · ${a.hab.nome.toUpperCase()}</h4><p style="margin:0">${a.hab.texto}</p></div>`:''}
-  ${mestre&&aliOwners(a.id).length?`<div class="ft-chips">${aliOwners(a.id).map(p=>`<span class="ft-chip" style="color:#150a0b;border-color:#150a0b">${dname(p)}</span>`).join('')}</div>`:''}</div>
+  ${mestre&&aliOwners(a.id).length?`<div class="ft-chips">${aliOwners(a.id).map(p=>`<button type="button" class="ft-chip" data-act="alirem" data-id="${a.id}" data-from="${p.id}" title="Remover ${a.nome} da ficha de ${dname(p)}" style="color:#150a0b;border-color:#150a0b;cursor:pointer;font:inherit">${dname(p)} ✕</button>`).join('')}</div>`:''}</div>
   ${mestre?`<button class="ft-roll" data-act="aliadd" data-id="${a.id}">+ ADICIONAR À FICHA</button>`:''}</section>`;
 const aliHTML = ()=>`<div class="ft"><div class="ft-top"><h2>ALIADOS</h2><p>Catálogo de aliados. Escolha um aliado e adicione à ficha de um jogador.</p></div>
   <nav class="ft-sub" aria-label="Categorias de aliados">${ALI_CATS.map(([k,n])=>`<button class="${k===atab?'on':''}" data-act="altab" data-t="${k}">${n}${k==='vinc'?'':' ('+ALIADOS.filter(a=>a.cat===k).length+')'}</button>`).join('')}</nav><div id="albody"></div></div>`;
